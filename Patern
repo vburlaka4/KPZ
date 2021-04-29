@@ -1,5 +1,4 @@
-// Клас пультів має посилання на пристрій, яким керує. Методи
-// цього класу делегують роботу методам пов'язаного пристрою.
+
 class Remote is
     protected field device: Device
     constructor Remote(device: Device) is
@@ -19,14 +18,12 @@ class Remote is
         device.setChannel(device.getChannel() + 1)
 
 
-// Ви можете розширювати клас пультів, не чіпаючи код пристроїв.
+
 class AdvancedRemote extends Remote is
     method mute() is
         device.setVolume(0)
 
 
-// Всі пристрої мають спільний інтерфейс, тому з ними може
-// працювати будь-який пульт.
 interface Device is
     method isEnabled()
     method enable()
@@ -37,7 +34,6 @@ interface Device is
     method setChannel(channel)
 
 
-// Разом з цим, кожен пристрій має особливу реалізацію.
 class Tv implements Device is
     // ...
 
